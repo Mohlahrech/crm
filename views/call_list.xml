@@ -25,26 +25,26 @@
                             <group>
                                 <field name="product_id" options="{'no_create': True}"/>
                                 <field name="product_qty"/>
+				<field name="product_id5" options="{'no_create': True}"/>
+				<field name="pharmacie_id" domain="[('is_pharmacie', '=', True)]" options="{'no_create': True}"/>				
                             </group>
                         </page>
                         <page string="Produits récupérés">
                             <group>
                                 <field name="product_id2" options="{'no_create': True}"/>
                                 <field name="product_qty2"/>
+				<field name="product_id6" options="{'no_create': True}"/>
+				<field name="pharmacie_id2" domain="[('is_pharmacie', '=', True)]" options="{'no_create': True}"/>                                
                             </group>
                         </page>
-                        <page string="Produits concurrents">
-                            <group>
-                                <field name="product_id4"/>
-<!--                                <field name="product_qty2"/>-->
-                            </group>
-                        </page>
+                  
                     </notebook>
-                    <group>
+                    <!--group>
                         <field name="pharmacie_id" domain="[('is_pharmacie', '=', True)]" options="{'no_create': True}"/>
-                    </group>
+                    </group>-->
                 </sheet>
             </form>
         </field>
     </record>
 </odoo>
+

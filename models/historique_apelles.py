@@ -50,6 +50,13 @@ class HistoriqueAppels(models.Model):
         string="Produit du concurrent", store=True
     )
 
+    product_id5 = fields.Many2one(
+        "product.product",
+        string="Produit concurent",domain=[("bd_lofric", "!=", False)])
+    product_id6 = fields.Many2one(
+        "product.product",
+        string="Produit concurent",domain=[("bd_lofric", "!=", False)])
+
     product_qty2 = fields.Float(
         string="Quantité récupérée"
     )
@@ -58,7 +65,11 @@ class HistoriqueAppels(models.Model):
         string="Pharmacie",
         domain=[('is_pharmacie', '=', True)]
     )
-
+    pharmacie_id2 = fields.Many2one(
+        "res.partner",
+        string="Pharmacie",
+        domain=[('is_pharmacie', '=', True)]
+    )
 
 
     # fonction pour déclancher la creation d'activité si un call et crée avec un date récup set

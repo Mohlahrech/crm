@@ -102,15 +102,6 @@ class CrmLead(models.Model):
 
     call_ids = fields.One2many("crm.call.history", "crm_id", string="Liste des apelles", order="date_recup asc")
 
-    opportunity_count = fields.Integer(string="Opportunity Count", compute="_compute_opportunity_count", store=True)
-
-    def _compute_opportunity_count(self):
-        for record in self:
-            record.opportunity_count = 1  # Chaque enregistrement vaut 1
-
-
-
-
 
     # @api.depends('phone','mobile')
     # def _compute_has_duplicate_phone(self):
@@ -217,6 +208,10 @@ class CrmLead(models.Model):
                                         help="Untaxed Total of Confirmed Orders", currency_field='company_currency')
     quotation_count = fields.Integer(compute='_compute_sale_data', string="Number of Quotations")
     sale_order_count = fields.Integer(compute='_compute_sale_data', string="Number of Sale Orders")
+
+    bool_lofric = fields.Boolean(string="Lofric", store=True)
+    bool_bd = fields.Boolean(string="BD", store=True)
+    bool_concurent = fields.Boolean(string="Concurrent", store=True)
 
 
     def action_sale_quotations_new(self):
